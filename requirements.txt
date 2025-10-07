@@ -4,3 +4,4 @@ langgraph
 langsmith
 dotenv
 streamlit
+langgraph-checkpoint-sqlite==2.0.11
