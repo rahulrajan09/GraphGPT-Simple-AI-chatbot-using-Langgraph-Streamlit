@@ -83,7 +83,16 @@ if user_input:
     with st.chat_message('user'):
         st.text(user_input)
         
-    CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}}
+    #CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}}
+    
+    #for langsmith tracing using thread_id needs metadata info and run-name is just a name given to runs in langsmith
+    CONFIG = {
+        'configurable':{'thread_id':st.session_state['thread_id']},
+        'metadata':{'thread_id':st.session_state['thread_id']},
+        'run_name':'chat_turn'
+    }
+    
+    
     #add to session history first
     with st.chat_message('ai'):
         
